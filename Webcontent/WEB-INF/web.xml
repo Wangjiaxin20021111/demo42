@@ -3,4 +3,36 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <servlet>
+        <servlet-name>Travellerzhuce</servlet-name>
+        <servlet-class>Servlet.Travellerzhuce</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Travellerzhuce</servlet-name>
+        <url-pattern>/Travellerzhuce</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Driverzhuce</servlet-name>
+        <servlet-class>Servlet.Driverzhuce</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Driverzhuce</servlet-name>
+        <url-pattern>/Driverzhuce</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Travellerlogin</servlet-name>
+        <servlet-class>Servlet.Travellerlogin</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Travellerlogin</servlet-name>
+        <url-pattern>/Travellerlogin</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Driverlogin</servlet-name>
+        <servlet-class>Servlet.Driverlogin</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Driverlogin</servlet-name>
+        <url-pattern>/Driverlogin</url-pattern>
+    </servlet-mapping>
 </web-app>
