@@ -1,6 +1,7 @@
 <%@ page import="Service.TravellerService2" %>
 <%@ page import="Condition.Condition" %>
-<%@ page import="java.sql.SQLException" %><%--
+<%@ page import="java.sql.SQLException" %>
+<%@ page import="POJI.Traveller" %><%--
   Created by IntelliJ IDEA.
   User: 25043
   Date: 2022/3/12
@@ -21,16 +22,28 @@
         String book=request.getParameter("book");
         if(book.equals("是"))
         {
+            TravellerService2 tr=new TravellerService2();
+
+
             String time = request.getParameter("time");
             System.out.println(time);
             String num = request.getParameter("num");
-            String beginplace = request.getParameter("beginplace");
-            String endplace = request.getParameter("endplace");
-            Condition co = new Condition(time,num,beginplace,endplace);
-            int n = service2.book(co);
-            if (n > 0) {
-                out.print("您已成功发布信息，请耐心等待司机接单");
+
+            Traveller traveller=tr.checktraveller(num);
+            if(traveller.getZhuangtai().equals("未有司机接单"))
+            {
+                String beginplace = request.getParameter("beginplace");
+                String endplace = request.getParameter("endplace");
+                Condition co = new Condition(time,num,beginplace,endplace);
+                int n = service2.book(co);
+                if (n > 0) {
+                    out.print("您已成功发布信息，请耐心等待司机接单");
+                }
             }
+           else {
+               out.print("您已经有一笔订单在手");
+            }
+
         }
         else {
             out.print("请您返回预订！");

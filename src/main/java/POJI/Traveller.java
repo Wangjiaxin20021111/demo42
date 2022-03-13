@@ -7,7 +7,7 @@ public class Traveller {
     String time;
     String beginplace;
     String endplace;
-
+    String zhuangtai;
     public String getNum() {
         return num;
     }
@@ -24,6 +24,10 @@ public class Traveller {
         return beginplace;
     }
 
+    public String getZhuangtai() {
+        return zhuangtai;
+    }
+
     public String getEndplace() {
         return endplace;
     }
@@ -38,6 +42,10 @@ public class Traveller {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void setZhuangtai(String zhuangtai) {
+        this.zhuangtai = zhuangtai;
     }
 
     public void setTime(String time) {

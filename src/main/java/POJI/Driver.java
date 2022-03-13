@@ -5,9 +5,18 @@ public class Driver {
     String password;
     String driverage;
     String carnum;
-
+    String zhuangtai;
+    String traveller;
     public String getNum() {
         return num;
+    }
+
+    public String getZhuangtai() {
+        return zhuangtai;
+    }
+
+    public String getTraveller() {
+        return traveller;
     }
 
     public String getPassword() {
@@ -30,11 +39,20 @@ public class Driver {
         this.num = num;
     }
 
+    public void setTraveller(String traveller) {
+        this.traveller = traveller;
+    }
+
     public void setCarnum(String carnum) {
         this.carnum = carnum;
+    }
+
+    public void setZhuangtai(String zhuangtai) {
+        this.zhuangtai = zhuangtai;
     }
 
     public void setDriverage(String driverage) {
         this.driverage = driverage;
     }
+
 }

@@ -13,7 +13,6 @@ import java.sql.SQLException;
 public class Travellerlogin extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         try {
             TravellerService2 tt=new TravellerService2();
             req.setCharacterEncoding("gbk");

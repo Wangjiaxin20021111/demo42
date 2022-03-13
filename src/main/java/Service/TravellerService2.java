@@ -6,7 +6,7 @@ import POJI.Traveller;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-
+@SuppressWarnings("all")
 public class TravellerService2 {
     TravellerDAO2 dd=new TravellerDAO2();
     public Traveller findTraveller(String num, String password) throws SQLException {
@@ -35,11 +35,43 @@ public class TravellerService2 {
             String sql1="update traveller set endplace=' "+co.endplace+" ' where num='"+co.num+"'";
 
             String sql2="update traveller set time='"+co.time+"' where num='"+co.num+"'";
-            n=dd.book(sql,sql1,sql2);
+            String sql3="update traveller set zhuangtai='未有司机接单' where num='"+co.num+"'";
+            n=dd.book(sql,sql1,sql2,sql3);
             return n;
         }
         else {
             return 0;
         }
+    }
+
+    public Traveller checktraveller(String num) throws SQLException {
+        ArrayList<Traveller> list = new ArrayList<>();
+        String sql = null;
+        if (num != null && num != "")
+        {
+            sql = "select*from traveller where zhuangtai='未有司机接单' and num='"+num+"'";
+        }
+        Traveller traveller = null;
+        list = dd.checktraveller(sql);
+        if(list!=null)
+        {
+            return list.get(0);
+        }
+       else {
+            System.out.println("here");
+           Traveller traveller1=new Traveller();
+            traveller1.setZhuangtai("已有司机接单");
+            return traveller1;
+        }
+    }
+
+    public int arrivetraveller(String num) throws SQLException {
+        int a=0;
+        String sql="update traveller set time=null where num='"+num+"'";
+        String sql1="update traveller set beginplace=null where num='"+num+"'";
+        String sql2="update traveller set endplace=null where num='"+num+"'";
+        String sql3="update traveller set zhuangtai='未有司机接单' where num='"+num+"'";
+        a=dd.arrivetraveller(sql,sql1,sql2,sql3);
+        return a;
     }
 }

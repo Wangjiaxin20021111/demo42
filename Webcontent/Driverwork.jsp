@@ -28,8 +28,16 @@
         <td><input type="datetime-local" name="time1" required/></td>
     </tr>
     <input type="hidden" name="num" value="${requestScope.num}">
+    <tr>
+        <td>查看订单</td>
+        <td>
+            <a href="Driverwork4.jsp?num=${requestScope.num}">
+                点击这里查看已经存在的订单
+            </a>
+        </td>
+    </tr>
 </table>
-<input type="submit" value="注册">
+<input type="submit" value="提交">
     </form>
 </center>
 </body>
